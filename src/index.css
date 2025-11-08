@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .clip-path-custom {
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 75% 95%, 0 100%)
+  }
+  .clip-path-custom-2{
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%)
+  }
+}
+
+/* You can add your custom global styles below the import */
+:root { 
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; 
+ 
+}
