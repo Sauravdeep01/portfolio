@@ -18,11 +18,11 @@ function App() {
   return (
 
     <>
-      {/* 1. Conditional Rendering for Intro OR Main Portfolio */}
+      {/* Conditional Rendering for Intro OR Main Portfolio */}
       {showIntro ? (
         <IntroAnimation onComplete={() => setShowIntro(false)} />
       ) : (
-        // 🌟 MAIN PORTFOLIO CONTAINER (Replaces the two separate divs)
+        //  MAIN PORTFOLIO CONTAINER (Replaces the two separate divs)
         <div className="relative min-h-screen">
           
           {/* BACKGROUND: Rendered as a backdrop */}
