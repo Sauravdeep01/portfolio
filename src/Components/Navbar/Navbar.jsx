@@ -7,13 +7,22 @@ function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Change navbar background on scroll
+  // Handle Scroll (Background & Active Section)
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    // 1. Navigation Highlighting Logic (Intersection Observer)
+    const sectionIds = menuItems.map(item => item.id);
+    const observerCallback = (entries) => { entries.forEach(entry => { if (entry.isIntersecting) setActiveSection(entry.target.id); }); };
+    const observer = new IntersectionObserver(observerCallback, { rootMargin: '-40% 0px -40% 0px' });
+    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+    // 2. Navbar Background Transition Logic
+    const handleScroll = () => { setIsScrolled(window.scrollY > 50); };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Simple smooth scroll
@@ -23,7 +32,7 @@ function Navbar() {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({
-        behavior: "smooth", // 👈 this makes it truly smooth
+        behavior: "smooth",
         block: "start",
       });
     }
@@ -40,11 +49,10 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
-        isScrolled
-          ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${isScrolled
+        ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md"
+        : "bg-transparent"
+        }`}
     >
       <div className="text-white py-5 flex justify-between items-center">
         {/* Logo */}
@@ -62,9 +70,8 @@ function Navbar() {
             <li key={item.id}>
               <button
                 onClick={() => handleMenuItem(item.id)}
-                className={`cursor-pointer hover:text-[#8245ec] ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
-                }`}
+                className={`cursor-pointer hover:text-[#8245ec] ${activeSection === item.id ? "text-[#8245ec]" : ""
+                  }`}
               >
                 {item.label}
               </button>
@@ -121,9 +128,8 @@ function Navbar() {
             {menuItems.map((item) => (
               <li
                 key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
-                }`}
+                className={`cursor-pointer hover:text-white ${activeSection === item.id ? "text-[#8245ec]" : ""
+                  }`}
               >
                 <button onClick={() => handleMenuItem(item.id)}>
                   {item.label}

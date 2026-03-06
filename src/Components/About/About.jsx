@@ -6,9 +6,9 @@ function About() {
     return (
         <section
             id='about'
-            className='py-4 px-[7vw] md:px-[7vw] lg:px-[20vw] font-sans mt-16 md:mt-24 lg:mt-32'
+            className='min-h-screen flex items-center px-[7vw] md:px-[7vw] lg:px-[15vw] font-sans pt-24 scroll-mt-24'
         >
-            <div className='flex flex-col-reverse md:flex-row justify-between items-center'>
+            <div className='flex flex-col-reverse md:flex-row justify-between items-center w-full'>
                 {/* Left Side */}
                 <div className='md:w-1/2 text-center md:text-left mt-8 md:mt-0 md:mr-16'>
                     {/* Greeting */}
@@ -38,12 +38,12 @@ function About() {
                             repeat={Infinity} // Loop forever
                         />
 
-                        
+
                     </h3>
 
                     {/* About me paragraph */}
-                    <p className='text-base sm:text-lg md:text-lg text-gray-400 mb-10 mt-8 leading-relaxed'>
-                        I am a versatile Fullstack Developer constantly expanding my skillset within the MERN ecosystem. While deeply proficient in MongoDB, Express, React, and Node.js, I bring a keen eye for modern UI/UX design and clean architecture to every project. My goal is to craft highly responsive interfaces while maintaining the security and performance required of enterprise-level applications.
+                    <p className='text-base sm:text-lg md:text-xl text-gray-300 mb-10 mt-8 leading-relaxed max-w-2xl font-normal tracking-wide text-center md:text-left mx-auto md:mx-0'>
+                        I'm a <span className='text-white font-semibold'>Full Stack Developer</span> specialized in building high-performance web applications using the <span className='text-[#8245ec] font-semibold'>MERN stack</span>. I focus on creating clean, scalable code and delivering seamless user experiences across all devices.
                     </p>
 
                     {/* Resume button */}
@@ -53,7 +53,7 @@ function About() {
                         rel='noopener noreferrer'
                         className='inline-block text-white py-3 px-8 rounded-full mt-0 text-lg font-bold transition duration-300 transform hover:scale-105'
                         style={{
-                            background: 'linear-gradient(90-deg, #8245ec, #a855f7',
+                            background: 'linear-gradient(90deg, #8245ec, #a855f7)',
                             boxShadow: '0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec'
                         }}>
                         Download CV

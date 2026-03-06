@@ -4,7 +4,7 @@ function Projects() {
     return (
         <section
             id='projects'
-            className='py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans relative'
+            className='py-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans relative scroll-mt-10'
         >
             {/* Section Title ... (rest of the code) */}
             <div className='text-center mb-16'>
@@ -34,7 +34,7 @@ function Projects() {
                                 className='w-full h-48 object-cover rounded-t-xl' // Updated class for border radius
                             />
                         </div>
-                        
+
                         {/* 2. Title, Description, and Tags (The Missing Part) */}
                         <div className='p-6'>
                             <h3 className='text-2xl font-bold text-white mb-3'>

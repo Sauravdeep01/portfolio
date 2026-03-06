@@ -2,13 +2,13 @@ import { education } from "../../Constants"
 
 function Education() {
 
-     const SKILLS_BACKGROUND_GRADIENT =
+    const SKILLS_BACKGROUND_GRADIENT =
         'linear-gradient(38.73deg, rgba(204,0,187,0.15) 0%, rgba(201,32,184,0) 50%), linear-gradient(141.27deg, rgba(0,70,209,0.15) 0%, rgba(0,70,209,0) 50%, rgba(0,70,209,0.15) 100%)';
 
     return (
         <section
             id="education"
-            className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans clip-path-custom-2"
+            className="py-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans clip-path-custom-2 scroll-mt-15"
 
             style={{
                 backgroundImage: SKILLS_BACKGROUND_GRADIENT,
@@ -28,7 +28,7 @@ function Education() {
             <div className="relative">
                 {/* Vertical line */}
                 <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 sm:translate-x-0 w-1 bg-white h-full "></div>
-                
+
                 {/* Education Entries */}
                 {education.map((edu, index) => (
                     <div
@@ -55,10 +55,10 @@ function Education() {
                             <p className="text-sm text-gray-500 mt-2 mb-4">
                                 {edu.date}
                             </p>
-                            
+
                             {/* NEW: Grade and Description */}
-                            <p className="mt-4 text-gray-400 font-bold">Grade: {edu.grade}</p>
-                            
+                            {edu.grade && <p className="mt-4 text-gray-400 font-bold">Grade: {edu.grade}</p>}
+
                         </div>
                     </div>
                 ))}

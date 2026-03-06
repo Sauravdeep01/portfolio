@@ -12,8 +12,8 @@ function Skills() {
         <section
             id="skills"
             className="
-                pb-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans 
-                relative z-20 clip-path-custom
+                py-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans 
+                relative z-20 clip-path-custom scroll-mt-10
             "
             style={{
                 backgroundImage: SKILLS_BACKGROUND_GRADIENT,
@@ -55,37 +55,37 @@ function Skills() {
 
                         {/* Skill items - 3 per row on larger screens */}
                         <Tilt
-                                perspective={1500} 
-                                glareEnable={true}
-                                glareMaxOpacity={0.1}
-                                glareColor="#ffffff"
-                                scale={1.01} // Very slight scale
-                                transitionSpeed={600}
-                                className="w-full" // Ensure Tilt covers the full width
-                            >
-                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full">
-                                    {category.skills.map((skill) => (
-                                        <div
-                                            key={skill.name}
-                                            className="flex items-center bg-transparent border-2 border-gray-700 rounded-3xl space-x-2 py-2 px-2 text-center justify-start 
+                            perspective={1500}
+                            glareEnable={true}
+                            glareMaxOpacity={0.1}
+                            glareColor="#ffffff"
+                            scale={1.01} // Very slight scale
+                            transitionSpeed={600}
+                            className="w-full" // Ensure Tilt covers the full width
+                        >
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full">
+                                {category.skills.map((skill) => (
+                                    <div
+                                        key={skill.name}
+                                        className="flex items-center bg-transparent border-2 border-gray-700 rounded-3xl space-x-2 py-2 px-2 text-center justify-start 
                                                 transition-all duration-300 ease-in-out 
                                                 hover:border-[#8245ec] hover:scale-105 hover:shadow-lg hover:shadow-[#8245ec]/50"
-                                            // Individual item Tilt removed, hover effect restored
+                                    // Individual item Tilt removed, hover effect restored
+                                    >
+                                        <img
+                                            src={skill.logo}
+                                            alt={`${skill.name} logo`}
+                                            className="w-6 h-6 sm:w-8 sm:h-8"
+                                        />
+                                        <span
+                                            className="text-xs truncate text-gray-300"
                                         >
-                                            <img
-                                                src={skill.logo}
-                                                alt={`${skill.name} logo`}
-                                                className="w-6 h-6 sm:w-8 sm:h-8"
-                                            />
-                                            <span 
-                                                className="text-xs truncate text-gray-300"
-                                            >
-                                                {skill.name}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </Tilt>
+                                            {skill.name}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </Tilt>
 
 
                     </div>

@@ -45,16 +45,16 @@ function Contact() {
                     });
                 }
             )
-    
+
     }
 
     return (
         <section
             id="contact"
-            className="flex flex-col justify-center items-center py-24 px-[12vw] md:px-[7vw] ld:px-[20vw]"
+            className="flex flex-col justify-center items-center py-24 px-[12vw] md:px-[7vw] lg:px-[20vw] scroll-mt-10"
         >
 
-            <ToastContainer/>
+            <ToastContainer />
 
             {/* Section Title */}
             <div className="text-center mb-16">
