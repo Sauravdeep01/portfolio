@@ -7,6 +7,8 @@ import Navbar from "./Components/Navbar/Navbar"
 import About from "./Components/About/About"
 import Skills from "./Components/Skills/Skills"
 import Projects from "./Components/Projects/Projects"
+import Certificates from "./Components/Certificates/Certificates"
+import Achievements from "./Components/Achievements/Achievements"
 import Education from "./Components/Education/Education"
 import Contact from "./Components/Contact/Contact"
 
@@ -33,6 +35,8 @@ function App() {
             <Navbar />
             <About />
             <Skills />
+            <Certificates />
+            <Achievements />
             <Projects />
             <Education />
             <Contact />

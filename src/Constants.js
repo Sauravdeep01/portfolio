@@ -32,10 +32,21 @@ import netlifyLogo from './assets/tech_logo/netlify.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
 import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
+
 // Project Section Logo's
-import movierecLogo from './assets/work_logo/github_det.png';
-import imagesearchLogo from './assets/work_logo/image_search.png';
-import E_learningLogo from './assets/work_logo/E_learning.png';
+import aiResumeScannerLogo from './assets/work_logo/AI_Scanner.png';
+import doctorLogo from './assets/work_logo/doctor.png';
+import E_CommerceLogo from './assets/work_logo/E_Commerce.png';
+import ConfessHubLogo from './assets/work_logo/ConfessHub.png';
+import CollabWhiteboardLogo from './assets/work_logo/Collab_Whiteboard.png';
+
+// Certificate Logo's
+import cloudComputingCert from './assets/certificates_img/cloud_computing.png';
+import dsaCert from './assets/certificates_img/DSA.png';
+import oopsCert from './assets/certificates_img/oops.png';
+import softwareEngCert from './assets/certificates_img/software_eng.png';
+import laravelCert from './assets/certificates_img/Laravel.png';
+import javascriptCert from './assets/certificates_img/js.png';
 
 
 export const SkillsInfo = [
@@ -86,6 +97,7 @@ export const SkillsInfo = [
   },
 ];
 
+
 export const education = [
   {
     id: 0,
@@ -115,26 +127,128 @@ export const education = [
 export const projects = [
   {
     id: 0,
-    title: "Online E-learning Website",
+    title: "Lavana E-commerece Website",
     description:
-      "An interactive online learning platform that helps students and professionals learn new skills through engaging courses, video lessons, and quizzes — anytime, anywhere.",
-    image: E_learningLogo,
-    tags: ["HTML", "CSS", "JavaScript", "React JS", "API"],
+      "Built a full-stack e-commerce platform that enables users to browse products, apply filters, and complete secure purchases through a responsive, mobile-first interface. Implemented RESTful APIs for product management, orders, and payment workflows.",
+    image: E_CommerceLogo,
+    tags: ["React JS", "Node JS", "Tailwind CSS", "Express JS", "MongoDB", "REST API's"],
+    github: "https://github.com/Sauravdeep01/Lavana-E-Commerce",
+    webapp: "https://easymartshop.vercel.app/",
   },
   {
     id: 1,
-    title: "Image Search App",
+    title: "Doctor Appointment Booking System",
     description:
-      "A React.js-based image search application that allows users to search and download high-quality images from the web. Built using external APIs to ensure a vast library of results for various queries.",
-    image: imagesearchLogo,
-    tags: ["React JS", "API", "Search Feature", "CSS", "Javascript"],
+      "Built a full-stack doctor appointment booking platform that allows patients to search doctors, view profiles, and schedule appointments online with secure authentication and RESTful backend services.",
+    image: doctorLogo,
+    tags: ["React JS", "Node JS", "Tailwind CSS", "Express JS", "MongoDB", "REST API's"],
+    github: "https://github.com/Sauravdeep01/carepoint",
+    webapp: "https://careappointment.vercel.app/",
   },
   {
     id: 2,
-    title: "Github Profile Search App",
+    title: "AI Resume Scanner",
     description:
-      "This project is a GitHub Profile Search App built using React JS and the GitHub API. It allows users to search for GitHub profiles by username and view detailed information such as profile picture, bio, repositories, followers, and following count.",
-    image: movierecLogo,
-    tags: ["React JS", "API",],
+      "An AI-powered resume analysis platform that evaluates resumes and provides instant ATS-based feedback. Integrated Gemini API to generate intelligent resume scoring and improvement suggestions, with real-time processing and secure authentication.",
+    image: aiResumeScannerLogo,
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT", "bcrypt.js", "pdf-parse", "Vercel"],
+    github: "https://github.com/Sauravdeep01/ResumeAnalyser",
+    webapp: "https://resume-analyserr.vercel.app/",
   },
-];  
+
+  {
+    id: 3,
+    title: "Confess Hub",
+    description:
+      "ConfessHub is a privacy-focused web platform that allows users to share thoughts and confessions anonymously without revealing their identity. It uses secure secret codes that enable users to edit or delete their posts later, while supporting anonymous reactions and comments to encourage open and honest expression.",
+    image: ConfessHubLogo,
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "REST APIs", "JWT Authentication"],
+    github: "https://github.com/Sauravdeep01/ConfessionHub",
+    webapp: "https://confessionhub-1.onrender.com/",
+  },
+
+  {
+    id: 4,
+    title: "Collaborative Whiteboard",
+    description:
+      "CollabWhiteboard is a real-time collaborative whiteboard platform that allows multiple users to draw, brainstorm, and share ideas simultaneously. It enables seamless teamwork with live updates and an interactive canvas for remote collaboration.",
+    image: CollabWhiteboardLogo,
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "REST APIs", "JWT Authentication"],
+    github: "https://github.com/Sauravdeep01/CollaborativeWhiteBoard",
+    webapp: "https://collaborative-whiteboard-t954.onrender.com/",
+  },
+];
+
+
+export const certificates = [
+  {
+    id: 0,
+    title: "Cloud Computing",
+    issuer: "NPTEL",
+    date: "Jun 2025",
+    image: cloudComputingCert,
+  },
+  {
+    id: 1,
+    title: "Object Oriented Programming",
+    issuer: "NeoColab",
+    date: "Dec 2024",
+    image: oopsCert,
+  },
+  {
+    id: 2,
+    title: "Data Structure and Algorithm",
+    issuer: "Lovely Professional University",
+    date: "Jul 2025",
+    image: dsaCert,
+  },
+  {
+    id: 3,
+    title: "Software Engineering",
+    issuer: "Coursera",
+    date: "May 2024",
+    image: softwareEngCert,
+  },
+  {
+    id: 4,
+    title: "Laravel",
+    issuer: "Udemy",
+    date: "Jan 2024",
+    image: laravelCert,
+  },
+  {
+    id: 5,
+    title: "Javascript",
+    issuer: "HackerRank",
+    date: "Feb 2025",
+    image: javascriptCert,
+  },
+];
+
+
+export const achievements = [
+  {
+    id: 0,
+    title: "200+ DSA Problems Solved",
+    description: "Successfully solved 200+ Data Structures and Algorithms problems across LeetCode and GeeksforGeeks.",
+    date: "2024-2025",
+    icon: "💻",
+    link: "https://leetcode.com/u/Sauravdeep01/"
+  },
+  {
+    id: 1,
+    title: "1704 LeetCode Rating",
+    description: "Attained a contest rating of 1704, reflecting proficiency in competitive programming and advanced problem-solving.",
+    date: "2024",
+    icon: "🚀",
+    link: "https://leetcode.com/u/Sauravdeep01/"
+  },
+  {
+    id: 2,
+    title: "1445 CodeChef Rating",
+    description: "Earned a 1445 contest rating through regular and disciplined participation in global coding competitions.",
+    date: "2024",
+    icon: "🏆",
+    link: "https://www.codechef.com/users/sauravdeep01"
+  },
+];

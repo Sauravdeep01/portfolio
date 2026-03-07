@@ -2,6 +2,16 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
+const menuItems = [
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "certificates", label: "Certificates" },
+  { id: "achievements", label: "Achievements" },
+  { id: "projects", label: "Projects" },
+  { id: "education", label: "Education" },
+  { id: "contact", label: "Contact" },
+];
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -9,13 +19,18 @@ function Navbar() {
 
   // Handle Scroll (Background & Active Section)
   useEffect(() => {
-    // 1. Navigation Highlighting Logic (Intersection Observer)
     const sectionIds = menuItems.map(item => item.id);
-    const observerCallback = (entries) => { entries.forEach(entry => { if (entry.isIntersecting) setActiveSection(entry.target.id); }); };
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
+      });
+    };
     const observer = new IntersectionObserver(observerCallback, { rootMargin: '-40% 0px -40% 0px' });
-    sectionIds.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
-    // 2. Navbar Background Transition Logic
     const handleScroll = () => { setIsScrolled(window.scrollY > 50); };
     window.addEventListener("scroll", handleScroll);
 
@@ -38,18 +53,9 @@ function Navbar() {
     }
   };
 
-  const menuItems = [
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "education", label: "Education" },
-    { id: "contact", label: "Contact" },
-
-  ];
-
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${isScrolled
+      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[10vw] ${isScrolled
         ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md"
         : "bg-transparent"
         }`}
