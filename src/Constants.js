@@ -35,7 +35,7 @@ import csharpLogo from './assets/tech_logo/csharp.png';
 
 // Project Section Logo's
 import aiResumeScannerLogo from './assets/work_logo/AI_Scanner.png';
-import doctorLogo from './assets/work_logo/doctor.png';
+import doctorLogo from './assets/work_logo/Doctor.png';
 import E_CommerceLogo from './assets/work_logo/E_Commerce.png';
 import ConfessHubLogo from './assets/work_logo/ConfessHub.png';
 import CollabWhiteboardLogo from './assets/work_logo/Collab_Whiteboard.png';
