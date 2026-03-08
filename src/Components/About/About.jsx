@@ -84,6 +84,7 @@ function About() {
                         <img
                             src={ProfilePic}
                             alt="Saurav Deep"
+                            loading="lazy"
                             className='w-full h-full object-cover'
                             style={{
                                 // Ensuring the image remains circular inside the tilting element

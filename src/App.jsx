@@ -13,6 +13,9 @@ import Education from "./Components/Education/Education"
 import Contact from "./Components/Contact/Contact"
 
 
+import Reveal from "./Components/Reveal";
+
+
 function App() {
 
   const [showIntro, setShowIntro] = useState(true);
@@ -33,13 +36,27 @@ function App() {
           {/* CONTENT: This div sits on top of the background (z-10 ensures visibility) */}
           <div className="relative pt-10 z-10">
             <Navbar />
-            <About />
-            <Skills />
-            <Certificates />
-            <Achievements />
-            <Projects />
-            <Education />
-            <Contact />
+            <Reveal width="100%">
+              <About />
+            </Reveal>
+            <Reveal width="100%">
+              <Skills />
+            </Reveal>
+            <Reveal width="100%">
+              <Certificates />
+            </Reveal>
+            <Reveal width="100%">
+              <Achievements />
+            </Reveal>
+            <Reveal width="100%">
+              <Projects />
+            </Reveal>
+            <Reveal width="100%">
+              <Education />
+            </Reveal>
+            <Reveal width="100%">
+              <Contact />
+            </Reveal>
 
           </div>
         </div>

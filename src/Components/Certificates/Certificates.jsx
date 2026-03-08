@@ -40,6 +40,7 @@ function Certificates() {
                             <img
                                 src={getEmbedLink(cert.image)}
                                 alt={cert.title}
+                                loading="lazy"
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                                 onError={(e) => {
                                     e.target.src = "https://via.placeholder.com/400x300?text=Certificate";

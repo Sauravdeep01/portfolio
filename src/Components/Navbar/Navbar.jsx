@@ -1,5 +1,5 @@
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 const menuItems = [
@@ -104,6 +104,14 @@ function Navbar() {
           >
             <FaLinkedin size={24} />
           </a>
+          <a
+            href="https://www.instagram.com/sauravdeep01"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <FaInstagram size={24} />
+          </a>
         </div>
 
 
@@ -160,6 +168,14 @@ function Navbar() {
                 className="text-gray-300 hover:text-white"
               >
                 <FaLinkedin size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com/behind__you.16/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white"
+              >
+                <FaInstagram size={24} />
               </a>
             </div>
           </ul>
