@@ -1,7 +1,71 @@
+import React, { useState, useRef, useEffect } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 import { projects } from '../../Constants';
 
 function Projects() {
+    const sliderRef = useRef(null);
+    const containerRef = useRef(null);
+    const [isHovered, setIsHovered] = useState(false);
+    const scrollPos = useRef(0);
+    const requestRef = useRef(null);
+
+    const animate = () => {
+        if (!isHovered && sliderRef.current) {
+            scrollPos.current += 0.8; // Adjusted speed to be closer to original CSS 30s marquee
+            const maxScroll = sliderRef.current.scrollWidth / 2;
+            if (scrollPos.current >= maxScroll) {
+                scrollPos.current = 0;
+            }
+            sliderRef.current.style.transform = `translateX(-${scrollPos.current}px)`;
+        }
+        requestRef.current = requestAnimationFrame(animate);
+    };
+
+    useEffect(() => {
+        requestRef.current = requestAnimationFrame(animate);
+        return () => {
+            if (requestRef.current) {
+                cancelAnimationFrame(requestRef.current);
+            }
+        };
+    }, [isHovered]);
+
+    useEffect(() => {
+        const handleWheel = (e) => {
+            if (isHovered && sliderRef.current) {
+                // Only scroll the slider if the user is performing a horizontal gesture
+                if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                    // Prevent default only for horizontal scroll to avoid browser history navigation
+                    e.preventDefault();
+
+                    scrollPos.current += e.deltaX * 0.8;
+
+                    const maxScroll = sliderRef.current.scrollWidth / 2;
+
+                    // Wrap around logic for seamless loop
+                    if (scrollPos.current >= maxScroll) {
+                        scrollPos.current -= maxScroll;
+                    } else if (scrollPos.current < 0) {
+                        scrollPos.current += maxScroll;
+                    }
+
+                    sliderRef.current.style.transform = `translateX(-${scrollPos.current}px)`;
+                }
+                // Vertical scrolling (deltaY) is ignored here, allowing the page to scroll naturally
+            }
+        };
+
+        const container = containerRef.current;
+        if (container) {
+            container.addEventListener('wheel', handleWheel, { passive: false });
+        }
+        return () => {
+            if (container) {
+                container.removeEventListener('wheel', handleWheel);
+            }
+        };
+    }, [isHovered]);
+
     return (
         <section
             id='projects'
@@ -21,12 +85,21 @@ function Projects() {
 
 
             {/* Project Slider Container */}
-            <div className='relative w-full py-10 px-4 md:px-10'>
+            <div
+                ref={containerRef}
+                className='relative w-full py-10 px-4 md:px-10 overflow-hidden'
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
                 {/* Visual fading edges - Softer and more subtle */}
                 <div className='absolute left-0 top-0 bottom-0 w-[5%] bg-gradient-to-r from-black/40 to-transparent z-10 pointer-events-none'></div>
                 <div className='absolute right-0 top-0 bottom-0 w-[5%] bg-gradient-to-l from-black/40 to-transparent z-10 pointer-events-none'></div>
 
-                <div className='flex gap-10 animate-marquee pause-on-hover'>
+                <div
+                    ref={sliderRef}
+                    className='flex gap-10 w-max'
+                    style={{ willChange: 'transform' }}
+                >
                     {/* Render projects twice for seamless loop */}
                     {[...projects, ...projects].map((project, index) => (
                         <div
