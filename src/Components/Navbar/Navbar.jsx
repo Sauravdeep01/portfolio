@@ -105,7 +105,7 @@ function Navbar() {
             <FaLinkedin size={24} />
           </a>
           <a
-            href="https://www.instagram.com/sauravdeep01"
+            href="https://www.instagram.com/behind__you.16/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-[#8245ec]"
