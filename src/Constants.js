@@ -103,7 +103,7 @@ export const education = [
     id: 0,
     school: "Lovely Professional University",
     date: "Aug 23 - Present",
-    grade: "7.01 CGPA",
+    grade: "6.79 CGPA",
     desc: "I have completed my Master's degree (MCA) in Computer Applications from GLA University, Mathura. During my time at GLA, I gained a strong foundation in programming, software development, and computer science principles. I have studied courses such as Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Web Development, and Software Engineering. I actively participated in various workshops and technical events, which enhanced my skills and knowledge. My experience at GLA University has been instrumental in shaping my technical abilities and professional growth.",
     degree: "Bachelor of Technology - BTECH",
   },
@@ -229,8 +229,8 @@ export const certificates = [
 export const achievements = [
   {
     id: 0,
-    title: "200+ DSA Problems Solved",
-    description: "Successfully solved 200+ Data Structures and Algorithms problems across LeetCode and GeeksforGeeks.",
+    title: "150+ DSA Problems Solved",
+    description: "Successfully solved 150+ Data Structures and Algorithms problems across LeetCode and GeeksforGeeks.",
     date: "2024-2025",
     icon: "💻",
     link: "https://leetcode.com/u/Sauravdeep01/"
