@@ -104,62 +104,92 @@ function Projects() {
                     {[...projects, ...projects].map((project, index) => (
                         <div
                             key={`${project.id}-${index}`}
-                            className='w-[280px] md:w-[350px] flex-shrink-0 border border-white/10 bg-gray-900/40 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden cursor-pointer hover:border-purple-500/50 hover:shadow-purple-500/20 hover:-translate-y-3 transition-all duration-500 group relative'
+                            className='w-[280px] md:w-[350px] h-[420px] flex-shrink-0 cursor-pointer group relative [perspective:1000px]'
                         >
-                            {/* Glow Effect on Hover */}
-                            <div className='absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-20 transition duration-500 blur'></div>
+                            {/* Glow Effect on Hover (positioned outside flipper to safely wrap the card) */}
+                            <div className='absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-30 transition duration-700 blur'></div>
 
-                            {/* 1. Image */}
-                            <div className='relative h-52 overflow-hidden'>
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    loading="lazy"
-                                    className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
-                                />
-                                <div className='absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent opacity-80'></div>
+                            {/* Flipper Container */}
+                            <div className='w-full h-full relative transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-hover:-translate-y-3 rounded-2xl'>
 
-                                {/* Overlay Buttons on Card Hover */}
-                                <div className='absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px] z-20'>
-                                    <a
-                                        href={project.github}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='p-2.5 bg-gray-800/90 text-white rounded-full hover:bg-purple-600 transition-all hover:scale-110 shadow-xl border border-white/10'
-                                        title='View Code'
-                                    >
-                                        <Github size={18} />
-                                    </a>
-                                    <a
-                                        href={project.webapp}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        className='p-2.5 bg-gray-800/90 text-white rounded-full hover:bg-purple-600 transition-all hover:scale-110 shadow-xl border border-white/10'
-                                        title='Live Demo'
-                                    >
-                                        <ExternalLink size={18} />
-                                    </a>
+                                {/* --- FRONT SIDE --- */}
+                                <div className='absolute inset-0 [backface-visibility:hidden] flex flex-col border border-white/10 bg-gray-900/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-2xl z-20'>
+                                    {/* 1. Image */}
+                                    <div className='relative h-48 overflow-hidden flex-shrink-0'>
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            loading="lazy"
+                                            className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-110'
+                                        />
+                                        { /* Date Badge */}
+                                        <div className='absolute top-3 right-3 z-30 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/10 rounded-full'>
+                                            <span className='text-[10px] font-semibold text-purple-300 tracking-wider'>
+                                                {project.date}
+                                            </span>
+                                        </div>
+                                        <div className='absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent opacity-80 z-10'></div>
+                                    </div>
+
+                                    {/* 2. Content */}
+                                    <div className='p-6 md:p-8 flex flex-col justify-center items-center text-center flex-grow'>
+                                        <h3 className='text-xl md:text-2xl font-bold text-white mb-3'>
+                                            {project.title}
+                                        </h3>
+                                        <p className='text-gray-400 text-xs md:text-sm leading-relaxed line-clamp-3'>
+                                            {project.description}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* 2. Content */}
-                            <div className='p-6 relative'>
-                                <h3 className='text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors'>
-                                    {project.title}
-                                </h3>
-                                <p className='text-gray-400 mb-6 text-xs line-clamp-3 leading-relaxed font-medium'>
-                                    {project.description}
-                                </p>
-                                <div className='flex flex-wrap gap-2.5'>
-                                    {project.tags.map((tag, tagIndex) => (
-                                        <span
-                                            key={tagIndex}
-                                            className='text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 bg-purple-500/5 text-purple-400 border border-purple-500/10 rounded-md group-hover:border-purple-500/40 transition-colors'
+                                {/* --- BACK SIDE --- */}
+                                <div className='absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] border border-purple-500/50 bg-gray-900/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-2xl p-4 md:p-5 flex flex-col z-10'>
+
+                                    <div className='flex-grow text-left flex flex-col min-h-0 overflow-hidden'>
+
+                                        <h4 className='text-[11px] md:text-xs font-bold text-white mb-2 uppercase tracking-widest flex-shrink-0'>Features</h4>
+                                        <ul className='list-disc list-outside ml-4 text-gray-300 text-[11px] md:text-xs leading-relaxed font-medium mb-3 space-y-1.5 pr-1'>
+                                            {project.features.map((feature, i) => (
+                                                <li key={i}>{feature}</li>
+                                            ))}
+                                        </ul>
+
+                                        <div className='mt-2 flex-shrink-0'>
+                                            <h4 className='text-[11px] md:text-xs font-bold text-white mb-2 uppercase tracking-widest'>Tech Stacks</h4>
+                                            <div className='flex flex-wrap gap-2'>
+                                                {project.tags.map((tag, tagIndex) => (
+                                                    <span
+                                                        key={tagIndex}
+                                                        className='text-[9px] md:text-[10px] uppercase tracking-wider font-bold px-2 py-1 bg-purple-500/10 text-purple-300 border border-purple-500/20 rounded-md'
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Actions */}
+                                    <div className='flex items-center justify-between gap-3 mt-auto pt-3 border-t border-purple-500/20 flex-shrink-0'>
+                                        <a
+                                            href={project.github}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='flex flex-1 items-center justify-center gap-1.5 px-3 py-2 text-[11px] md:text-xs font-semibold bg-gray-800 text-white rounded-md hover:bg-purple-600 transition-all shadow border border-white/10'
                                         >
-                                            {tag}
-                                        </span>
-                                    ))}
+                                            <Github size={14} /> Code
+                                        </a>
+                                        <a
+                                            href={project.webapp}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='flex flex-1 items-center justify-center gap-1.5 px-3 py-2 text-[11px] md:text-xs font-semibold bg-gray-800 text-white rounded-md hover:bg-purple-600 transition-all shadow border border-white/10'
+                                        >
+                                            <ExternalLink size={14} /> Demo
+                                        </a>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     ))}

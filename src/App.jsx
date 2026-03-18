@@ -43,13 +43,13 @@ function App() {
               <Skills />
             </Reveal>
             <Reveal width="100%">
+              <Projects />
+            </Reveal>
+            <Reveal width="100%">
               <Certificates />
             </Reveal>
             <Reveal width="100%">
               <Achievements />
-            </Reveal>
-            <Reveal width="100%">
-              <Projects />
             </Reveal>
             <Reveal width="100%">
               <Education />

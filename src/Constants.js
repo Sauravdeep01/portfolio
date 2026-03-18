@@ -59,14 +59,12 @@ export const SkillsInfo = [
       { name: 'React JS', logo: reactjsLogo },
       { name: 'Redux', logo: reduxLogo },
       { name: 'Next JS', logo: nextjsLogo },
-      { name: 'Tailwind CSS', logo: tailwindcssLogo },
-      { name: 'Bootstrap', logo: bootstrapLogo },
+      { name: 'Tailwind CSS', logo: tailwindcssLogo }
     ],
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Springboot', logo: springbootLogo },
       { name: 'Node JS', logo: nodejsLogo },
       { name: 'Express JS', logo: expressjsLogo },
       { name: 'MySQL', logo: mysqlLogo },
@@ -128,30 +126,48 @@ export const projects = [
   {
     id: 0,
     title: "Lavana E-commerece Website",
-    description:
-      "Built a full-stack e-commerce platform that enables users to browse products, apply filters, and complete secure purchases through a responsive, mobile-first interface. Implemented RESTful APIs for product management, orders, and payment workflows.",
+    description: "A full-stack e-commerce platform for seamless product browsing and secure purchases.",
+    features: [
+      "Responsive mobile-first interface for intuitive browsing.",
+      "Advanced product filtering to enhance search experience.",
+      "Secure checkout system with complete payment workflows.",
+      "Robust RESTful APIs for product and order management."
+    ],
     image: E_CommerceLogo,
     tags: ["React JS", "Node JS", "Tailwind CSS", "Express JS", "MongoDB", "REST API's"],
+    date: "Oct' 25 - Nov' 25",
     github: "https://github.com/Sauravdeep01/Lavana-E-Commerce",
     webapp: "https://easymartshop.vercel.app/",
   },
   {
     id: 1,
     title: "Doctor Appointment Booking System",
-    description:
-      "Built a full-stack doctor appointment booking platform that allows patients to search doctors, view profiles, and schedule appointments online with secure authentication and RESTful backend services.",
+    description: "A comprehensive platform for patients to find doctors and securely book online appointments.",
+    features: [
+      "Patient-centric platform to search doctors and view profiles.",
+      "Online appointment scheduling system for seamless booking.",
+      "Secure user authentication for protecting patient data.",
+      "Efficient RESTful backend services for data management."
+    ],
     image: doctorLogo,
     tags: ["React JS", "Node JS", "Tailwind CSS", "Express JS", "MongoDB", "REST API's"],
+    date: "Aug' 25 - Sep' 25",
     github: "https://github.com/Sauravdeep01/carepoint",
     webapp: "https://careappointment.vercel.app/",
   },
   {
     id: 2,
     title: "AI Resume Scanner",
-    description:
-      "An AI-powered resume analysis platform that evaluates resumes and provides instant ATS-based feedback. Integrated Gemini API to generate intelligent resume scoring and improvement suggestions, with real-time processing and secure authentication.",
+    description: "An AI-powered application that evaluates resumes and provides instant ATS-based feedback.",
+    features: [
+      "Instant ATS-based feedback for uploaded resumes.",
+      "Gemini API integration for intelligent resume scoring.",
+      "Actionable improvement suggestions to enhance profiles.",
+      "Real-time processing with secure authentication."
+    ],
     image: aiResumeScannerLogo,
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT", "bcrypt.js", "pdf-parse", "Vercel"],
+    date: "Sep' 25 - Oct 25",
     github: "https://github.com/Sauravdeep01/ResumeAnalyser",
     webapp: "https://resume-analyserr.vercel.app/",
   },
@@ -159,10 +175,16 @@ export const projects = [
   {
     id: 3,
     title: "Confess Hub",
-    description:
-      "ConfessHub is a privacy-focused web platform that allows users to share thoughts and confessions anonymously without revealing their identity. It uses secure secret codes that enable users to edit or delete their posts later, while supporting anonymous reactions and comments to encourage open and honest expression.",
+    description: "A privacy-focused web platform for sharing thoughts and confessions completely anonymously.",
+    features: [
+      "Fully anonymous platform to share thoughts and confessions.",
+      "Secure secret codes allowing users to edit or delete posts.",
+      "Interactive anonymous reactions and comment system.",
+      "Privacy-focused infrastructure promoting honest expression."
+    ],
     image: ConfessHubLogo,
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "REST APIs", "JWT Authentication"],
+    date: "Jan' 26 - Feb'26",
     github: "https://github.com/Sauravdeep01/ConfessionHub",
     webapp: "https://confessionhub-1.onrender.com/",
   },
@@ -170,10 +192,16 @@ export const projects = [
   {
     id: 4,
     title: "Collaborative Whiteboard",
-    description:
-      "CollabWhiteboard is a real-time collaborative whiteboard platform that allows multiple users to draw, brainstorm, and share ideas simultaneously. It enables seamless teamwork with live updates and an interactive canvas for remote collaboration.",
+    description: "A real-time collaborative workspace for drawing, brainstorming, and sharing ideas seamlessly.",
+    features: [
+      "Real-time drawing and brainstorming for multiple users.",
+      "Interactive digital canvas built for remote collaboration.",
+      "Live updates enabling seamless and instant teamwork.",
+      "Tools for sharing ideas and creative expressions securely."
+    ],
     image: CollabWhiteboardLogo,
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "REST APIs", "JWT Authentication"],
+    date: "Feb' 26 - Mar' 26",
     github: "https://github.com/Sauravdeep01/CollaborativeWhiteBoard",
     webapp: "https://collaborative-whiteboard-t954.onrender.com/",
   },
