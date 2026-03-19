@@ -114,49 +114,64 @@ function Projects() {
 
                                 {/* --- FRONT SIDE --- */}
                                 <div className='absolute inset-0 [backface-visibility:hidden] flex flex-col border border-white/10 bg-gray-900/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-2xl z-20'>
+                                    {/* Top Space & Date Badge */}
+                                    <div className='flex justify-end items-center px-4 py-2 bg-gray-900/60 border-b border-white/5 flex-shrink-0 z-30'>
+                                        <div className='px-3 py-1 bg-black/50 backdrop-blur-md border border-purple-500/20 rounded-full shadow-[0_0_10px_rgba(168,85,247,0.1)]'>
+                                            <span className='text-[10px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 tracking-wider uppercase'>
+                                                {project.date}
+                                            </span>
+                                        </div>
+                                    </div>
+
                                     {/* 1. Image */}
-                                    <div className='relative h-48 overflow-hidden flex-shrink-0'>
+                                    <div className='relative h-40 overflow-hidden flex-shrink-0 bg-black/20'>
                                         <img
                                             src={project.image}
                                             alt={project.title}
                                             loading="lazy"
-                                            className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-110'
+                                            className='w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-110'
                                         />
-                                        { /* Date Badge */}
-                                        <div className='absolute top-3 right-3 z-30 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/10 rounded-full'>
-                                            <span className='text-[10px] font-semibold text-purple-300 tracking-wider'>
-                                                {project.date}
-                                            </span>
-                                        </div>
-                                        <div className='absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent opacity-80 z-10'></div>
+                                        <div className='absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-90 z-10 pointer-events-none'></div>
                                     </div>
 
                                     {/* 2. Content */}
-                                    <div className='p-6 md:p-8 flex flex-col justify-center items-center text-center flex-grow'>
-                                        <h3 className='text-xl md:text-2xl font-bold text-white mb-3'>
+                                    <div className='p-5 md:p-5 flex flex-col justify-center text-left flex-grow bg-gradient-to-b from-transparent to-gray-900/50'>
+                                        <h3 className='text-lg md:text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-2 tracking-tight leading-tight line-clamp-2'>
                                             {project.title}
                                         </h3>
-                                        <p className='text-gray-400 text-xs md:text-sm leading-relaxed line-clamp-3'>
+                                        <p className='text-gray-400 text-[11px] md:text-xs leading-relaxed font-medium line-clamp-3'>
                                             {project.description}
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* --- BACK SIDE --- */}
-                                <div className='absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] border border-purple-500/50 bg-gray-900/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-2xl p-4 md:p-5 flex flex-col z-10'>
+                                <div className='absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] border border-purple-500/50 bg-gray-900/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-2xl flex flex-col z-10'>
+                                    {/* Top Space for consistency */}
+                                    <div className='flex justify-end items-center px-4 py-2 bg-gray-900/60 border-b border-purple-500/30 flex-shrink-0 z-30'>
+                                        <div className='px-3 py-1 bg-purple-500/10 border border-purple-500/20 backdrop-blur-md rounded-full'>
+                                            <span className='text-[10px] font-bold text-purple-300 tracking-wider uppercase'>
+                                                Details
+                                            </span>
+                                        </div>
+                                    </div>
 
-                                    <div className='flex-grow text-left flex flex-col min-h-0 overflow-hidden'>
+                                    <div className='flex-grow text-left flex flex-col justify-center min-h-0 overflow-hidden p-4 md:p-5 gap-3 md:gap-4'>
+                                        
+                                        <div className='flex flex-col min-h-0 overflow-hidden'>
+                                            <h4 className='text-[11px] md:text-xs font-bold text-white mb-1.5 md:mb-2 uppercase tracking-widest flex-shrink-0'>Features</h4>
+                                            <ul className='list-disc list-outside ml-4 text-gray-300 text-[10px] md:text-[11px] leading-relaxed font-medium space-y-1'>
+                                                {project.features.map((feature, i) => (
+                                                    <li key={i}>
+                                                        <span className='line-clamp-2'>{feature}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
 
-                                        <h4 className='text-[11px] md:text-xs font-bold text-white mb-2 uppercase tracking-widest flex-shrink-0'>Features</h4>
-                                        <ul className='list-disc list-outside ml-4 text-gray-300 text-[11px] md:text-xs leading-relaxed font-medium mb-3 space-y-1.5 pr-1'>
-                                            {project.features.map((feature, i) => (
-                                                <li key={i}>{feature}</li>
-                                            ))}
-                                        </ul>
-
-                                        <div className='mt-2 flex-shrink-0'>
-                                            <h4 className='text-[11px] md:text-xs font-bold text-white mb-2 uppercase tracking-widest'>Tech Stacks</h4>
-                                            <div className='flex flex-wrap gap-2'>
+                                        <div className='flex-shrink-0'>
+                                            <h4 className='text-[11px] md:text-xs font-bold text-white mb-1.5 md:mb-2 uppercase tracking-widest'>Tech Stacks</h4>
+                                            <div className='flex flex-wrap gap-1.5 md:gap-2'>
                                                 {project.tags.map((tag, tagIndex) => (
                                                     <span
                                                         key={tagIndex}
@@ -170,12 +185,12 @@ function Projects() {
                                     </div>
 
                                     {/* Actions */}
-                                    <div className='flex items-center justify-between gap-3 mt-auto pt-3 border-t border-purple-500/20 flex-shrink-0'>
+                                    <div className='flex items-center justify-between gap-3 mt-auto p-4 md:p-5 pt-3 md:pt-3 border-t border-purple-500/20 flex-shrink-0 bg-gray-900/40'>
                                         <a
                                             href={project.github}
                                             target='_blank'
                                             rel='noopener noreferrer'
-                                            className='flex flex-1 items-center justify-center gap-1.5 px-3 py-2 text-[11px] md:text-xs font-semibold bg-gray-800 text-white rounded-md hover:bg-purple-600 transition-all shadow border border-white/10'
+                                            className='flex flex-1 items-center justify-center gap-1.5 px-3 py-2 text-[11px] md:text-xs font-semibold bg-gray-800 text-white rounded-md hover:bg-purple-600 transition-all shadow border border-white/10 hover:border-purple-500'
                                         >
                                             <Github size={14} /> Code
                                         </a>
@@ -183,7 +198,7 @@ function Projects() {
                                             href={project.webapp}
                                             target='_blank'
                                             rel='noopener noreferrer'
-                                            className='flex flex-1 items-center justify-center gap-1.5 px-3 py-2 text-[11px] md:text-xs font-semibold bg-gray-800 text-white rounded-md hover:bg-purple-600 transition-all shadow border border-white/10'
+                                            className='flex flex-1 items-center justify-center gap-1.5 px-3 py-2 text-[11px] md:text-xs font-semibold bg-gray-800 text-white rounded-md hover:bg-purple-600 transition-all shadow border border-white/10 hover:border-purple-500'
                                         >
                                             <ExternalLink size={14} /> Demo
                                         </a>
