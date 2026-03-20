@@ -259,7 +259,7 @@ export const achievements = [
     id: 0,
     title: "150+ DSA Problems Solved",
     description: "Successfully solved 150+ Data Structures and Algorithms problems across LeetCode and GeeksforGeeks.",
-    date: "2024-2025",
+    date: "2025-2026",
     icon: "💻",
     link: "https://leetcode.com/u/Sauravdeep01/"
   },
@@ -267,7 +267,7 @@ export const achievements = [
     id: 1,
     title: "1704 LeetCode Rating",
     description: "Attained a contest rating of 1704, reflecting proficiency in competitive programming and advanced problem-solving.",
-    date: "2024",
+    date: "2025",
     icon: "🚀",
     link: "https://leetcode.com/u/Sauravdeep01/"
   },
@@ -275,7 +275,7 @@ export const achievements = [
     id: 2,
     title: "1445 CodeChef Rating",
     description: "Earned a 1445 contest rating through regular and disciplined participation in global coding competitions.",
-    date: "2024",
+    date: "2025",
     icon: "🏆",
     link: "https://www.codechef.com/users/sauravdeep01"
   },
