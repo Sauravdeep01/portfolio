@@ -11,6 +11,7 @@ import Certificates from "./Components/Certificates/Certificates"
 import Achievements from "./Components/Achievements/Achievements"
 import Education from "./Components/Education/Education"
 import Contact from "./Components/Contact/Contact"
+import Chatbot from "./Components/Chatbot/Chatbot"
 
 
 import Reveal from "./Components/Reveal";
@@ -58,6 +59,8 @@ function App() {
               <Contact />
             </Reveal>
 
+            {/* Floating Chatbot */}
+            <Chatbot />
           </div>
         </div>
       )}
